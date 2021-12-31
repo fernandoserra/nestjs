@@ -1,5 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common'; //lo agregamos para validar lo que agregamos en el dto
+import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 import { env } from 'process';
 
@@ -11,6 +12,15 @@ async function bootstrap() {
             forbidNonWhitelisted: true,
         }),
     );
+
+    const config = new DocumentBuilder()
+        .setTitle('API')
+        .setDescription('Nest Fernando S.')
+        .setVersion('1.0')
+        .build();
+    const document = SwaggerModule.createDocument(app, config);
+    SwaggerModule.setup('docs', app, document);
+
     //Habilitando Cors (para ser consultada fuera del dominio donde se hace el deploy)
     app.enableCors();
     await app.listen(process.env.PORT || 3000);
