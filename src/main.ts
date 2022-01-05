@@ -2,7 +2,6 @@ import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common'; //lo agregamos para validar lo que agregamos en el dto
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './app.module';
-import { env } from 'process';
 
 async function bootstrap() {
     const app = await NestFactory.create(AppModule);
