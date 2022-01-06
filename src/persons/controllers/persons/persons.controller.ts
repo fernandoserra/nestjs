@@ -26,7 +26,7 @@ export class PersonsController {
     @Get()
     @ApiOperation({ summary: 'List of person' })
     findAll(@Query() params: FilterDto) {
-        return this.personsService.findAll();
+        return this.personsService.findAll(params);
     }
 
     @Get(':id')
