@@ -10,7 +10,11 @@ import {
 } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 
-import { CreatePersonDto, UpdatePersonDto } from 'src/persons/dto/person.dto';
+import {
+    CreatePersonDto,
+    UpdatePersonDto,
+    FilterDto,
+} from 'src/persons/dto/person.dto';
 import { PersonsService } from 'src/persons/services/persons/persons.service';
 
 @ApiTags('persons')
