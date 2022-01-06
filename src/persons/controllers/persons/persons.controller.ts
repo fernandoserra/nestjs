@@ -7,6 +7,7 @@ import {
     Put,
     Delete,
     ParseIntPipe,
+    Query,
 } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 
@@ -24,7 +25,7 @@ export class PersonsController {
 
     @Get()
     @ApiOperation({ summary: 'List of person' })
-    findAll() {
+    findAll(@Query() params: FilterDto) {
         return this.personsService.findAll();
     }
 
