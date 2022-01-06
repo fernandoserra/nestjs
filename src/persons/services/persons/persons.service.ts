@@ -1,5 +1,9 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { CreatePersonDto, UpdatePersonDto } from 'src/persons/dto/person.dto';
+import {
+    CreatePersonDto,
+    UpdatePersonDto,
+    FilterDto,
+} from 'src/persons/dto/person.dto';
 import { Person } from 'src/persons/entities/person.entity';
 
 @Injectable()
@@ -13,7 +17,11 @@ export class PersonsService {
         },
     ];
 
-    findAll() {
+    findAll(params?: FilterDto) {
+        if (params) {
+            // Add TypeORM
+            //hacer la consulta
+        }
         return this.person;
     }
 
