@@ -32,12 +32,4 @@ export class FilterDto {
     @IsOptional()
     @Min(0)
     offset: number;
-
-    @IsOptional()
-    @IsPositive()
-    minPrice: number;
-
-    @ValidateIf((item) => item.minPrice)
-    @IsPositive()
-    maxPrice: number;
 }
